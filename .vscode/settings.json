@@ -1,0 +1,7 @@
+{
+  "python.pythonPath": ".venv/bin/python",
+  "printcode.tabSize": 4,
+  "editor.tabCompletion": "on",
+"prettier.useTabs": true,
+"python.formatting.provider": "black"
+}
