@@ -70,7 +70,13 @@ while customer_order != "quit":
     customer_order = input("> ")
     # if 'quit' exit & bid a fond adeu
     if customer_order == "quit":
-        print("Thank you for your business! We look forward to serving you again soon.")
+        # print key-value pairs in menu_items whose customer_order is > 0
+        # https://thispointer.com/python-print-specific-key-value-pairs-of-dictionary/
+        print("Here's what you ordered: ")
+        for menu_items, customer_order in menu_items.items():
+            if customer_order > 0:
+                print(f"{customer_order} {menu_items}")
+        print("Thank you for your business; we look forward to serving you again soon!")
         break
     # check to see if desired key is in dictionary
     elif customer_order in menu_items:
@@ -81,7 +87,11 @@ while customer_order != "quit":
             print(
                 f"** {menu_items[customer_order]} order of {customer_order} has been added to your meal **"
             )
-        else:
+        elif menu_items[customer_order] > 1:
             print(
                 f"** {menu_items[customer_order]} orders of {customer_order} have been added to your meal **"
             )
+    else:
+        print(
+            f"Sorry, {customer_order} is not currently on our menu. Please order again"
+        )
